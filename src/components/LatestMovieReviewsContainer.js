@@ -27,7 +27,7 @@ export default class LatestMovieReviewsContainer extends Component {
     return (
       <div className = "latest-movie-reviews">
         <h1> Latest Movie Reviews: </h1>
-        {this.state.reviews.map(mov => <MovieReviews {...mov} />)}
+        <MovieReviews reviews={this.state.reviews} />
       </div>
     )
   }

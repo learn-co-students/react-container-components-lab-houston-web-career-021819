@@ -20,7 +20,7 @@ export default class SearchableMovieReviewsContainer extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault()
-    fetch(`https://api.nytimes.com/svc/movies/v2/reviews/search.json?query=${this.state.value}&api-key=IYf02t5mpAwUPmztiG27OpwZ7O53VIk2`)
+    fetch(`https://api.nytimes.com/svc/movies/v2/reviews/search.json?query=${this.state.searchTerm}&api-key=IYf02t5mpAwUPmztiG27OpwZ7O53VIk2`)
     .then(res => res.json())
     .then(data => {
       this.setState({
@@ -46,7 +46,7 @@ export default class SearchableMovieReviewsContainer extends Component {
         <form onSubmit={this.handleSubmit} >
           <input onChange={this.handleChange} value={this.state.searchTerm}></input>
         </form>
-        {this.state.reviews.map(mov => <MovieReviews {...mov} />)}
+        <MovieReviews reviews={this.state.reviews} />
       </div>
     )
   }
